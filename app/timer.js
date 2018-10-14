@@ -4,7 +4,7 @@ class Timer {
       setTimeout(() => {
         let sender = 'root'
         contract.call({ sender, name, args })
-      }, new Date().valueOf() - date.valueOf())
+      }, date.valueOf() - new Date().valueOf())
     })
   }
 }
