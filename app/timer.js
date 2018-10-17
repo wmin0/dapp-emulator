@@ -3,7 +3,11 @@ class Timer {
     contract.on('schedule', (date, name, ...args) => {
       setTimeout(() => {
         let sender = 'root'
-        contract.call({ sender, name, args })
+        try {
+          contract.call({ sender, name, args })
+        } catch (e) {
+          console.error(e)
+        }
       }, date.valueOf() - new Date().valueOf())
     })
   }
